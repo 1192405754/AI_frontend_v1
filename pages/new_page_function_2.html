@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/function_2_style.css">
+    <script type="text/javascript" src="js/function_2.js"></script>
+    <!-- 引入 pyecharts 的主题文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-gl/dist/echarts-gl.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-stat/dist/ecStat.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/dataTool.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/china.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/map/js/world.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/extension/bmap.min.js"></script>
+    <script src="js/function_2.js"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
+
+</head>
+<style>
+    .table-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        color:white;
+
+    }
+
+    .table-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    table, th, td {
+        border: 2px solid #67e0e3;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #67e0e3;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        /*background-color: #f2f2f2;*/
+    }
+
+    /*tr:hover {*/
+    /*    background-color: #ddd;*/
+    /*}*/
+
+    .legend-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+    }
+
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .legend-item .feature-number {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        background-color: darkorange;
+        color: #fff;
+    }
+
+    .legend {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: white;
+        font-size: 18px;
+        font-width: bold;
+    }
+
+    .legend-item {
+        display: flex;
+        color: white;
+        font-size: 16px;
+        font-weight: normal;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .legend-item .color-box {
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+
+    .icon-google:before {
+        font-size: 48px;
+        margin-bottom: 16px;
+    }
+
+    .bar {
+        fill: orange;
+        animation: fadeIn 1s ease-out forwards;
+        transition: transform 0.3s, fill 0.3s;
+        transform-origin: center bottom;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: scaleY(0);
+        }
+        100% {
+            opacity: 1;
+            transform: scaleY(1);
+        }
+    }
+
+    .bar:hover {
+        fill: blue;
+        transform: scale(1.5);
+        cursor: pointer;
+    }
+</style>
+<script>
+    window.onload = function () {
+        display_chart_pie();
+    }
+
+    var chart = document.getElementById('chart').getContext('2d'),
+        gradient = chart.createLinearGradient(0, 0, 0, 450);
+
+    gradient.addColorStop(0, 'rgba(0, 199, 214, 0.32)');
+    gradient.addColorStop(0.3, 'rgba(0, 199, 214, 0.1)');
+    gradient.addColorStop(1, 'rgba(0, 199, 214, 0)');
+
+
+    var data = {
+        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        datasets: [{
+            label: 'Applications',
+            backgroundColor: gradient,
+            pointBackgroundColor: '#00c7d6',
+            borderWidth: 1,
+            borderColor: '#0e1a2f',
+            data: [60, 45, 80, 30, 35, 55, 25, 80, 40, 50, 80, 50]
+        }]
+    };
+
+    var options = {
+        responsive: true,
+        maintainAspectRatio: true,
+        animation: {
+            easing: 'easeInOutQuad',
+            duration: 520
+        },
+        scales: {
+            yAxes: [{
+                ticks: {
+                    fontColor: '#5e6a81'
+                },
+                gridLines: {
+                    color: 'rgba(200, 200, 200, 0.08)',
+                    lineWidth: 1
+                }
+            }],
+            xAxes: [{
+                ticks: {
+                    fontColor: '#5e6a81'
+                }
+            }]
+        },
+        elements: {
+            line: {
+                tension: 0.4
+            }
+        },
+        legend: {
+            display: false
+        },
+
+        point: {
+            backgroundColor: '#00c7d6'
+        },
+        tooltips: {
+            titleFontFamily: 'Poppins',
+            backgroundColor: 'rgba(0,0,0,0.4)',
+            titleFontColor: 'white',
+            caretSize: 5,
+            cornerRadius: 2,
+            xPadding: 10,
+            yPadding: 10
+        }
+    };
+
+    var chartInstance = new Chart(chart, {
+        type: 'line',
+        data: data,
+        options: options
+    });
+
+    document.querySelector('.open-right-area').addEventListener('click', function () {
+        document.querySelector('.app-right').classList.add('show');
+    });
+
+    document.querySelector('.close-right').addEventListener('click', function () {
+        document.querySelector('.app-right').classList.remove('show');
+    });
+
+    document.querySelector('.menu-button').addEventListener('click', function () {
+        document.querySelector('.app-left').classList.add('show');
+    });
+
+    document.querySelector('.close-menu').addEventListener('click', function () {
+        document.querySelector('.app-left').classList.remove('show');
+    });
+
+    // 获取所有柱形元素
+    const bars = document.querySelectorAll('.bar');
+    // 获取标题元素
+    const chartTitle = document.getElementById('chart-title');
+
+    // 默认标题
+    const defaultTitle = '样本均值柱状分布图';
+
+    // // 为每个柱形添加鼠标悬停和鼠标离开事件监听器
+    // bars.forEach(bar => {
+    //     bar.addEventListener('mouseover', (event) => {
+    //         const index = event.target.getAttribute('data-index');
+    //         const value = event.target.getAttribute('data-value');
+    //         chartTitle.textContent = `第 ${index} 个样本的均值为 ${value}`;
+    //
+    //         // 添加缩放效果
+    //         const x = parseFloat(event.target.getAttribute('x'));
+    //         const y = parseFloat(event.target.getAttribute('y'));
+    //         event.target.setAttribute('transform', `translate(${x * 0.05}, ${y * 0.05}) scale(1.1)`);
+    //     });
+    //
+    //
+    //     bar.addEventListener('mouseout', () => {
+    //         chartTitle.textContent = defaultTitle;
+    //         // 移除缩放效果
+    //         event.target.removeAttribute('transform');
+    //     });
+    // });
+
+</script>
+<body>
+<div class="app-container">
+    <div class="app-left">
+        <button class="close-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-x">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="app-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-bar-chart-2">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+            <span>模型2-控制台</span>
+        </div>
+        <ul class="nav-list">
+            <li class="nav-list-item active">
+                <a class="nav-list-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-columns">
+                        <path d="M12 3h7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7m0-18H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7m0-18v18"/>
+                    </svg>
+                    数据可视化
+                </a>
+            </li>
+            <li class="nav-list-item">
+                <a class="nav-list-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-briefcase">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    模型查看
+                </a>
+            </li>
+            <li class="nav-list-item">
+                <a class="nav-list-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-file">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                        <polyline points="13 2 13 9 20 9"/>
+                    </svg>
+                    Excel文件调整
+                </a>
+            </li>
+            <li class="nav-list-item">
+                <a class="nav-list-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-users">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    Team
+                </a>
+            </li>
+            <li class="nav-list-item">
+                <a class="nav-list-link" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-pie-chart">
+                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                        <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                    </svg>
+                    导出数据报告
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="app-main">
+        <div class="main-header-line">
+            <h1>模型2-数据可视化界面</h1>
+            <div class="action-buttons">
+                <button class="open-right-area">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-activity">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </button>
+                <button class="menu-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                         class="feather feather-menu">
+                        <line x1="3" y1="12" x2="21" y2="12"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <line x1="3" y1="18" x2="21" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="chart-row three">
+            <div class="chart-container-wrapper">
+                <div class="chart-container">
+                    <div class="chart-info-wrapper">
+                        <h2>离群概率阈值</h2>
+                        <span>95%</span>
+                    </div>
+                    <div class="chart-svg">
+                        <svg viewBox="0 0 36 36" class="circular-chart pink">
+                            <path class="circle-bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <path class="circle" stroke-dasharray="95, 100" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <text x="18" y="20.35" class="percentage">95%</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container-wrapper">
+                <div class="chart-container">
+                    <div class="chart-info-wrapper">
+                        <h2>离群特征数</h2>
+                        <span>1/16</span>
+                    </div>
+                    <div class="chart-svg">
+                        <svg viewBox="0 0 36 36" class="circular-chart blue">
+                            <path class="circle-bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <path class="circle" stroke-dasharray="6.25, 100" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <text x="18" y="20.35" class="percentage">1/16</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container-wrapper">
+                <div class="chart-container">
+                    <div class="chart-info-wrapper">
+                        <h2>离群排名</h2>
+                        <span>3/5</span>
+                    </div>
+                    <div class="chart-svg">
+                        <svg viewBox="0 0 36 36" class="circular-chart orange">
+                            <path class="circle-bg" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <path class="circle" stroke-dasharray="60, 100" d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"></path>
+                            <text x="18" y="20.35" class="percentage">3/5</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chart-row two">
+            <div class="chart-container-wrapper big">
+                <div class="chart-container">
+                    <div class="chart-container-header">
+                        <h2>当前URL离群概率仪表盘</h2>
+                        <span>当前输入：URL5</span>
+                    </div>
+                    <div id="8f9962bdf6044158adb11a4fe5fe619a"
+                         style="width:30vw; height:30vw; position: relative; color:white;font-size:24px;">
+                    </div>
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="color-box" style="background-color: #67e0e3;"></div>
+                            <span>URL异常概率低</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box" style="background-color: #37a2da;"></div>
+                            <span>URL异常概率中</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="color-box" style="background-color: #fd666d;"></div>
+                            <span>URL异常概率高</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tech-divider"></div>
+
+                <div class="chart-container">
+                    <div class="chart-container-header">
+                        <h2>当前URL特征分布柱状图</h2>
+                        <span>当前输入：URL5</span>
+                    </div>
+                    <svg id="chart" viewBox="0 0 240 130">
+                        <!-- 定义箭头形状的marker元素 -->
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5"
+                                    markerWidth="6" markerHeight="6"
+                                    orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="orange"/>
+                            </marker>
+                        </defs>
+
+                        <!-- 横轴 -->
+                        <line x1="20" y1="100" x2="230" y2="100" stroke="orange" marker-end="url(#arrow)"/>
+                        <!-- 纵轴 -->
+                        <line x1="20" y1="100" x2="20" y2="10" stroke="orange" marker-end="url(#arrow)"/>
+                        <!-- 横轴标签 -->
+                        <text x="120" y="120" text-anchor="middle"
+                              style="background:darkblue; fill: white; font-size: 6px; font-weight: bold;">
+                            特征标签（序号）
+                        </text>
+                        <!-- 纵轴标签 -->
+                        <text x="25" y="15" text-anchor="start" transform="rotate(0, 10, 55)"
+                              style="background:darkblue; fill: white; font-size: 6px; font-weight: bold;">
+                            特征值
+                        </text>
+                        <script>
+                            (function () {// 获取 SVG 元素
+                                const chartSvg = document.getElementById('chart');
+
+                                const sampleMeans = [0.5, 0.5, 10, 60, 0.5, 0.5, 0.5, 0.5, 0.5, 10, 10, 0.5, 0.5, 10, 10, 0.5];
+
+                                // 循环遍历样本均值数组并创建柱形元素
+                                sampleMeans.forEach((mean, index) => {
+                                    // 创建序号标签
+                                    const xAxisLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                                    xAxisLabel.setAttribute('x', 44 + index * 9); // 计算 x 坐标
+                                    xAxisLabel.setAttribute('y', 105); // 计算 y 坐标
+                                    xAxisLabel.setAttribute('text-anchor', 'middle');
+                                    xAxisLabel.setAttribute('style', 'fill: white; font-size: 4px; font-family: Arial;'); // 添加样式
+                                    xAxisLabel.textContent = index + 1;
+
+                                    // 创建数值标签
+                                    const valueLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                                    valueLabel.setAttribute('x', 44 + index * 9); // 计算 x 坐标
+                                    valueLabel.setAttribute('y', 100 - mean - 5); // 计算 y 坐标
+                                    valueLabel.setAttribute('text-anchor', 'middle');
+                                    valueLabel.setAttribute('style', 'fill: white; font-size: 4px; font-family: Arial;'); // 添加样式
+                                    if ((mean / 10).toFixed(0) != 0) {
+                                        valueLabel.textContent = (mean / 10).toFixed(0);
+                                    } else {
+                                        valueLabel.textContent = ""; // 当值为 0 时，设置为空字符串，以隐藏数据标签
+                                    }
+
+                                    // 创建柱形元素
+                                    const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                                    bar.setAttribute('class', 'bar');
+                                    bar.setAttribute('x', 39 + index * 9); // 计算 x 坐标
+                                    bar.setAttribute('y', 100 - mean); // 计算 y 坐标
+                                    bar.setAttribute('width', 8);
+                                    bar.setAttribute('height', mean);
+
+                                    bar.setAttribute('fill', 'blue'); // 添加填充颜色
+
+                                    // 将柱形元素添加到 SVG 中
+                                    chartSvg.appendChild(bar);
+                                    //
+                                    // // 将序号标签和数值标签添加到 SVG 中
+                                    chartSvg.appendChild(xAxisLabel);
+                                    chartSvg.appendChild(valueLabel);
+                                });
+
+                            })();
+                        </script>
+                    </svg>
+                    <div class="legend-container">
+                        <!-- 按顺序添加 16 个特征 -->
+                        <div class="legend-item">
+                            <div class="feature-number">F1</div>
+                            <span>Have_IP</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F2</div>
+                            <span>Have_At</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F3</div>
+                            <span>URL_Length</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F4</div>
+                            <span>URL_Depth</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F5</div>
+                            <span>Redirection</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F6</div>
+                            <span>https_Domain</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F7</div>
+                            <span>TinyURL</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F8</div>
+                            <span>Prefix/Suffix</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F9</div>
+                            <span>DNS_Record</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F10</div>
+                            <span>Domain_Age</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F11</div>
+                            <span>Domain_End</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F12</div>
+                            <span>iFrame</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F13</div>
+                            <span>Mouse_Over</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F14</div>
+                            <span>Right_Click</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F15</div>
+                            <span>Web_Forwards</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="feature-number">F16</div>
+                            <span>Label</span>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="tech-divider"></div>
+
+                <div class="chart-container">
+                    <div class="chart-container-header">
+                        <h2>所有样本离群排名</h2>
+                        <span>当前输入：URL5</span>
+                    </div>
+                    <!--                    离群排名表格-->
+                    <div class="table-container">
+                        <h2 class="table-title">测试 URL 与离群排名</h2>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>测试URL</th>
+                                <th>离群排名</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>URL-1</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>URL-2</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>URL-3</td>
+                                <td>4</td>
+                            </tr>
+                            <tr>
+                                <td>URL-4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>URL-5</td>
+                                <td>3</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <div class="chart-container-wrapper small">
+                <div class="chart-container">
+                    <div class="chart-container-header">
+                        <h2>域名统计</h2>
+                        <span href="#">当前输入：URL5</span>
+                    </div>
+                    <div class="acquisitions-bar">
+                        <span class="bar-progress rejected" style="width:30%;"></span>
+                        <span class="bar-progress on-hold" style="width:0%;"></span>
+                        <span class="bar-progress shortlisted" style="width:15%;"></span>
+                        <span class="bar-progress applications" style="width:55%;"></span>
+                    </div>
+                    <div class="progress-bar-info">
+                        <span class="progress-color applications"></span>
+                        <span class="progress-type">.com</span>
+                        <span class="progress-amount">55%</span>
+                    </div>
+                    <div class="progress-bar-info">
+                        <span class="progress-color shortlisted"></span>
+                        <span class="progress-type">.net</span>
+                        <span class="progress-amount">15%</span>
+                    </div>
+                    <div class="progress-bar-info">
+                        <span class="progress-color on-hold"></span>
+                        <span class="progress-type">.cn</span>
+                        <span class="progress-amount">0%</span>
+                    </div>
+                    <div class="progress-bar-info">
+                        <span class="progress-color rejected"></span>
+                        <span class="progress-type">其他</span>
+                        <span class="progress-amount">30%</span>
+                    </div>
+                </div>
+                <div class="chart-container applicants">
+                    <div class="chart-container-header">
+                        <h2>历史记录</h2>
+                        <span>当前输入：URL5</span>
+                    </div>
+                    <div class="applicant-line">
+                        <div class="applicant-info">
+                            <span>URL1-已完成</span>
+                            <p>https://www.baidu.com</strong></p>
+                        </div>
+                    </div>
+                    <div class="applicant-line">
+                        <div class="applicant-info">
+                            <span>URL2-已完成</span>
+                            <p>https://www.bilibili.com</strong></p>
+                        </div>
+                    </div>
+                    <div class="applicant-line">
+                        <div class="applicant-info">
+                            <span>URL3-已完成</span>
+                            <p>https://www.szu.edu.cn</strong></p>
+                        </div>
+                    </div>
+                    <div class="applicant-line">
+                        <div class="applicant-info">
+                            <span>URL4-已完成</span>
+                            <p>https://www.google.com</strong></p>
+                        </div>
+                    </div>
+                    <div class="applicant-line">
+                        <div class="applicant-info">
+                            <span>URL5-已完成</span>
+                            <p>https://www.google.com</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="app-right">
+        <button class="close-right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="feather feather-x">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="profile-box">
+            <div class="profile-text">
+
+                <h2>数据与可视化介绍</h2>
+                <div class="tech-divider"></div>
+
+                <p style="font-size: 20px; text-indent: 1em">基本参数介绍：</p>
+                <p>
+                    1、离群概率阈值：离群概率阈值是用来区分正常和异常 URL 的临界值。可以通过分析训练数据集的异常分数分布来设定一个合适的阈值。例如，取95% 为离群阈值。这意味着那些异常分数高于 95% 的 URL 将被视为异常。<br><br>
+                </p>
+                <p>2、离群特征数：显著脱离样本特征均值的属性数量。<br><br></p>
+                <p>3、离群特征数：当前所有测试的URL的离群排名，排名越靠前离群幅度越小。<br><br></p>
+
+                </p>
+
+                <div class="tech-divider"></div>
+
+                <p style="font-size: 20px; text-indent: 1em">可视化简介：</p>
+                <p>
+                    1、当前URL离群概率仪表盘：分析了当前URL可能是异常URL的概率，如果概率<30%则视为低概率异常URL，即不太可能为钓鱼网站或风险链接；30%~70%视为中等概率异常URL；>70%视为概率异常URL，很有可能为钓鱼网站或风险链接。<br><br>
+                </p>
+                <p>
+                    2、当前URL特征分布柱状图：记录了当前测试的URL各个特征的具体值及其分布情况。<br><br>
+                </p>
+                <p>
+                    3、所有样本离群排名表：记录了当前所有URL样本的离群排名情况。<br><br>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

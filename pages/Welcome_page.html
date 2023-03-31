@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--    <link href="css/bootstrap.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/welcome_style.css"/>
+    <title>Welcome page</title>
+</head>
+<body>
+<div class="container animated-text">
+    <div class="navbar animated-text">
+        <img src="img/logo.png" class="logo"/>
+        <nav>
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">REGION</a></li>
+                <li><a href="#">ABOUT</a></li>
+            </ul>
+        </nav>
+        <img src="img/menu.png" class="menu-icon"/>
+    </div>
+
+    <div class="row">
+        <div class="col_l">
+            <h1 id="welcomeTitle">Welcome</h1>
+            <p id="welcomeText" class="welcome_text">
+                Exception Detection: An Application Oriented to Web URL
+            </p>
+            <button id="startBtn" type="button">Start Model</button>
+        </div>
+
+        <div class="col_r">
+            <div class="card1 card">
+                <div class="content">
+
+                </div>
+            </div>
+            <div class="card2 card">
+            </div>
+            <div class="card3 card">
+            </div>
+            <div class="card4 card">
+            </div>
+
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    const startBtn = document.getElementById("startBtn");
+    startBtn.addEventListener("click", function () {
+        window.location.href = "./functional_page.html";
+    });
+
+    const welcomeTitle = document.getElementById("welcomeTitle");
+    const welcomeText = document.getElementById("welcomeText");
+
+    const englishTitle = "Welcome";
+    const englishText = "Exception Detection: An Application Oriented to Web URL";
+    const chineseTitle = "欢迎使用";
+    const chineseText = "面向URL的异常检测系统";
+</script>
+</html>

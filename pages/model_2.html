@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>模型2</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!--    <link rel="stylesheet" href="css/common.css">-->
+    <!--    <link rel="stylesheet" href="css/data_text.css">-->
+    <!--    <link rel="stylesheet" href="css/foundation-datepicker.css">-->
+    <link rel="stylesheet" href="css/model_2.css">
+    <!--    <script src="js/model_1.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<video autoplay muted loop id="video-background">
+    <source src="img/function_bg_1.mp4" type="video/mp4">
+</video>
+<header>
+    <div class="logo">
+        <img src="img/logo.png" alt="Logo" class="animated-text">
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#">主页</a></li>
+            <li><a href="#">登录</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="page-title">
+    <h1>【模型2】面向任意网页URL的异常检测</h1>
+</div>
+<hr class="tech-divider animated-text">
+<body>
+<div class="function-description">
+    <ul class="algorithm-list">
+        <li class="step step-1">Step.1：输入URL与URL合法性检测</li>
+        <li class="step-1-description">
+            在下方输入栏中输入一个URL，点击 <span class="highlight">【开始检测】</span> 后会对 URL 的合法性进行检测。如果格式正确，会在网页上输出
+            URL 的具体内容，并作为异常检测的输入。
+        </li>
+    </ul>
+</div>
+
+<div class="url-input-wrapper">
+    <input type="text" id="url-input" placeholder="请输入一个合法的 URL...">
+    <button id="confirm-btn" onclick="checkURLValidity()">开始检测</button>
+</div>
+
+<hr class="tech-divider">
+
+<div id="url-output"></div>
+<div id="message"></div>
+
+<div class="function-description">
+    <ul class="algorithm-list">
+        <li class="step step-2">Step.2：URL异常检测</li>
+    </ul>
+</div>
+
+<!--<div class="run-model-container_URL">-->
+<!--    <button id="run-model_URL" class="run-model-button_URL" onclick="window.location.href='new_page_function_2.html'"-->
+<!--            disabled>-->
+<!--        启动模型-->
+<!--    </button>-->
+<!--</div>-->
+
+<div class="run-model-container_URL">
+    <button id="run-model_URL" class="run-model-button_URL" disabled>启动模型</button>
+</div>
+
+</body>
+
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.15.5/xlsx.full.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/china.js"></script>
+<script src="js/foundation-datepicker.js"></script>
+<script src="js/foundation-datepicker.zh-CN.js"></script>
+<script src="js/model_2.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var videoElement = document.getElementById("video-background");
+        videoElement.playbackRate = 0.5;
+    });
+
+    function isValidURL(url) {
+        try {
+            new URL(url);
+            return true;
+        } catch (_) {
+            return false;
+        }
+    }
+
+    function showMessage(message, isError) {
+        const messageContainer = document.getElementById('message');
+        const messages = message.split('正确的 URL');
+        const formattedMessage = messages.join('正确的 URL<br>');
+        messageContainer.innerHTML = formattedMessage;
+        messageContainer.classList.remove('error', 'success');
+        messageContainer.classList.add(isError ? 'error' : 'success');
+    }
+
+    function checkURLValidity() {
+        const urlInput = document.getElementById('url-input');
+        const urlOutput = document.getElementById('url-output');
+        const runModelButton = document.getElementById('run-model_URL');
+        const urlInputWrapper = document.querySelector('.url-input-wrapper');
+
+        const url = urlInput.value;
+
+        urlInputWrapper.classList.remove('invalid'); // 移除上一次的闪烁特效
+
+        if (url.trim() === '') {
+            urlOutput.innerHTML = '';
+            showMessage('没有输入任何URL！请输入一个合法的URL。', true);
+            runModelButton.disabled = true;
+            urlInputWrapper.classList.add('invalid');
+            return;
+        }
+
+        if (isValidURL(url)) {
+            urlOutput.innerHTML = `URL内容：${url}`;
+            showMessage('URL格式合法！可以点击【启动模型】开始检测', false);
+            runModelButton.disabled = false;
+        } else {
+            urlOutput.innerHTML = '';
+            showMessage('URL格式不合法，请输入正确的URL。URL合法格式如下：https://...', true);
+            runModelButton.disabled = true;
+            urlInputWrapper.classList.add('invalid'); // 添加新的闪烁特效
+        }
+    }
+
+
+    document.getElementById("run-model_URL").addEventListener("click", function () {
+        const inputText = document.getElementById("url-input").value;
+        window.location.href = "new_page_function_2.html?input=" + encodeURIComponent(inputText);
+    });
+</script>
+</html>

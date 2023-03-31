@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--    <link href="css/bootstrap.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/welcome_style.css"/>
+    <title>异常网站检测-首页</title>
+</head>
+
+<body>
+
+<div class="video_container">
+    <video class="full_screen_video" id="bgvid" playsinline="" autoplay="" muted="" loop="">
+        <source src="assets/images/video_index.mp4" type="video/mp4">
+    </video>
+</div>
+
+
+<div class="container animated-text">
+    <div class="navbar animated-text">
+        <a href="index.html"><img src="assets/images/logo.png" class="logo" alt=""/></a>
+        <nav>
+            <ul>
+                <li><a href="index.html"
+                       onclick="event.preventDefault(); fadeOut(); setTimeout(function() { location.href = 'index.html'; }, 3000);">主页</a>
+                </li>
+                <li><a href="signin_page.html">登录</a></li>
+                <li><a href="signup_page.html">注册</a></li>
+            </ul>
+        </nav>
+        <img src="assets/images/menu.png" class="menu-icon"/>
+    </div>
+
+    <div class="row">
+        <div class="col_l">
+            <h1 id="welcomeTitle">欢迎使用</h1>
+            <p id="welcomeText" class="welcome_text">
+                面向：网页URL & 海量数据集的异常检测系统
+            </p>
+            <button id="startBtn" type="button">启动模型</button>
+        </div>
+        <!--        <div class="col_r">-->
+        <!--            <a href="pages/Project.html">-->
+        <!--                <div class="card1 card">-->
+        <!--                </div>-->
+        <!--            </a>-->
+        <!--            <a href="pages/Model.html">-->
+        <!--                <div class="card2 card">-->
+        <!--                </div>-->
+        <!--            </a>-->
+        <!--            <a href="pages/Datasets.html">-->
+        <!--                <div class="card3 card">-->
+        <!--                </div>-->
+        <!--            </a>-->
+        <!--            <a href="pages/AboutUS.html">-->
+        <!--                <div class="card4 card">-->
+        <!--                </div>-->
+        <!--            </a>-->
+        <!--        </div>-->
+
+
+        <figure class="snip1477">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample36.jpg" alt="sample38"/>
+            <div class="title">
+                <div>
+                    <h2>项目概述</h2>
+                    <h4>架构、模型与数据集</h4>
+                </div>
+            </div>
+            <figcaption>
+                <p>这里展示了我们项目的基本框架，包括设计的背景、应用的人工智能算法模型以及具体部署。</p>
+            </figcaption>
+            <a href="pages/Project.html"></a>
+        </figure>
+
+        <figure class="snip1477"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample35.jpg"
+                                      alt="sample35"/>
+            <div class="title">
+                <div>
+                    <h2>关于我们</h2>
+                    <h4>团队、任务与理念</h4>
+                </div>
+            </div>
+            <figcaption>
+                <p>这里介绍了项目的发展历程，包括我们的项目规划思路、设计理念和未来展望。</p>
+            </figcaption>
+            <a href="pages/AboutUS.html"></a>
+        </figure>
+
+
+    </div>
+</div>
+</body>
+<script>
+    const startBtn = document.getElementById("startBtn");
+    startBtn.addEventListener("click", function () {
+        window.location.href = "./pages/loading_page.html";
+    });
+
+
+    const textArray = [
+        {
+            title: "安全上网",
+            subtitle: "打击非法钓鱼网站：我们在行动"
+        },
+        {
+            title: "欢迎使用",
+            subtitle: "面向：网页URL & 海量数据集的异常检测系统"
+        }
+    ];
+
+    function setText(index) {
+        const {title, subtitle} = textArray[index];
+        const h1 = document.querySelector(".col_l h1");
+        const p = document.querySelector(".col_l p.welcome_text");
+        h1.style.opacity = 0;
+        p.style.opacity = 0;
+        setTimeout(() => {
+            h1.textContent = title;
+            p.textContent = subtitle;
+            requestAnimationFrame(() => {
+                h1.style.opacity = 1;
+                p.style.opacity = 1;
+            });
+        }, 500);
+    }
+
+
+    let index = 0;
+    setInterval(() => {
+        const col_l = document.querySelector(".col_l");
+        col_l.classList.add("fade-out");
+        setTimeout(() => {
+            setText(index);
+            col_l.classList.remove("fade-out");
+            index = (index + 1) % textArray.length;
+        }, 500);
+    }, 5000);
+
+</script>
+</html>

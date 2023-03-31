@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>网站异常检测首页</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+<!--    <link rel="stylesheet" href="css/common.css">-->
+<!--    <link rel="stylesheet" href="css/data_text.css">-->
+<!--    <link rel="stylesheet" href="css/foundation-datepicker.css">-->
+    <link rel="stylesheet" href="css/functional_page_style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body>
+<div id="loading-animation" style="display: none;">
+    <!-- 在这里插入您喜欢的加载动画，例如一个旋转的图标 -->
+    <img src="img/loading_2.gif" alt="加载中...">
+</div>
+
+<!--header开始-->
+<div class="header">
+    <div class="header_logo fl">
+        <a href="https://gitee.com/iGaoWei/big-data-view"><img src="img/header_logo.png"
+                                                               alt="更多资源：https://gitee.com/iGaoWei/big-data-view"></a>
+    </div>
+    <div class="header_nav fl">
+        <ul>
+            <li>
+                <img src="img/nav_1.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view" class="nav_current">数据概览</a>
+            </li>
+            <li>
+                <img src="img/nav_2.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view">车辆监控</a>
+            </li>
+            <li>
+                <img src="img/nav_3.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view">政府监管</a>
+            </li>
+            <li>
+                <img src="img/nav_4.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view">参数设置</a>
+            </li>
+            <li>
+                <img src="img/nav_5.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view">车载视频</a>
+            </li>
+            <li>
+                <img src="img/nav_6.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view">视频监控</a>
+            </li>
+            <li>
+                <img src="img/nav_7.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view">查询统计</a>
+            </li>
+            <!--<li>-->
+            <!--<img src="img/nav_8.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">-->
+            <!--<a href="https://gitee.com/iGaoWei/big-data-view">行业应用</a>-->
+            <!--</li>-->
+            <li>
+                <img src="img/nav_9.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view">
+                <a href="https://gitee.com/iGaoWei/big-data-view">系统设置</a>
+                <ul>
+                    <li>
+                        <a href="https://gitee.com/iGaoWei/big-data-view">平台管理</a>
+                        <ul>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">平台管理1</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">平台管理2</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">平台管理3</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">平台管理3</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">平台管理3</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">平台管理3</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://gitee.com/iGaoWei/big-data-view">设备管理</a>
+                        <ul>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">设备管理1</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">设备管理2</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">设备管理3</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">设备管理4</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">设备管理5</a></li>
+                            <li><a href="https://gitee.com/iGaoWei/big-data-view">设备管理6</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="https://gitee.com/iGaoWei/big-data-view">系统设置</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="header_myself fr">
+        <p>用户：管理员</p>
+        <a href="https://gitee.com/iGaoWei/big-data-view" data-toggle="modal" data-target=".bs-example-modal-sm">注销
+            &nbsp;<span class="caret"></span></a>
+    </div>
+</div>
+<!--header结束-->
+
+<!--content开始-->
+<div class="data_content animated-text">
+    <div class="data_time">
+        <img src="img/data_time.png" alt="更多资源：https://gitee.com/iGaoWei/big-data-view" class="fl">
+        <input type="text" value="" id="demo-1" style="background: #04425f;width: 80px;" placeholder="选择日期">
+    </div>
+
+    <div class="data_main animated-text">
+        <div class="main_left fl">
+            <div class="left_1">
+                <div class="main_title"
+                     style="width:180px;height: 40px;display: flex; align-items: center; justify-content: center;">
+                    <img src="img/title_1.png">
+                    功能区1
+                </div>
+
+                <div id="chart_1" class="chart"
+                     style="width:100%;height: 150px;display: flex; align-items: center; justify-content: center;">
+                    <p class="fancy-text animated-text">
+                        基于数据集的异常网站检测
+                    </p>
+                </div>
+
+                <hr class="tech-divider">
+
+                <div class="info-wrapper animated-text">
+                    <img src="img/info_4.png" width="25px" margin>
+                    <p class="application_intro_1_text animated-text">
+                        功能简介
+                    </p>
+                </div>
+                <p class="function-description animated-text">
+                    此处我们实现了基于海量数据集的异常网站检测功能。在下方的Excel文件传输框中上传合适的数据集，点击【运行】按钮，即可同步进行算法的可视化管理和网站的异常检测。
+                </p>
+
+                <hr class="tech-divider animated-text">
+
+                <div class="info-wrapper animated-text">
+                    <img src="img/info_6.png" width="25px" margin>
+                    <p class="application_intro_1_text animated-text">
+                        算法模型
+                    </p>
+                </div>
+
+                <p class="function-description animated-text">
+                    <span class="indented-text animated-text">基于数据集的异常网站检测功能主要用到了以下机器学习算法：</span><br>
+                <ul class="algorithm-list animated-text">
+                    <li>算法模型1：---</li>
+                    <li>算法模型2：---</li>
+                    <li>算法模型3：---</li>
+                </ul>
+                </p>
+
+                <hr class="tech-divider animated-text">
+
+                <div class="info-wrapper animated-text">
+                    <img src="img/info_2.png " width="25px" margin>
+                    <p class="application_intro_1_text">
+                        在线应用
+                    </p>
+                </div>
+
+                <p class="function-description animated-text">
+                <ul class="algorithm-list animated-text">
+                    <li>Step.1：上传数据集（支持.xls，.xlsx和.csv文件）</li>
+                </ul>
+                </p>
+
+                <div class="error-notification " id="error-notification" style="display: none;">
+                    请上传合法的数据文件（.xls .xlsx或.csv）。
+                </div>
+
+                <div class="success-notification " id="success-notification" style="display: none;">
+                    上传成功！
+                </div>
+
+                <div class="file-upload-container animated-text">
+                    <input type="file" id="file-upload" accept=".xls,.xlsx" style="display: none;">
+                    <label for="file-upload" class="file-upload-button">选择 Excel 文件</label>
+                </div>
+
+                <hr class="tech-divider animated-text">
+
+                <p class="function-description animated-text">
+                <ul class="algorithm-list animated-text">
+                    <li>Step.2：启动模型与检测</li>
+                </ul>
+                </p>
+
+                <div class="run-model-container animated-text">
+                    <button id="run-model" class="run-model-button">启动模型</button>
+                </div>
+
+                <div id="table-container"></div>
+
+
+            </div>
+
+
+        </div>
+        <div class="main_center fl animated-text">
+            <div class="center_text">
+                <div class="main_title"
+                     style="width:180px;height: 40px;display: flex; align-items: center; justify-content: center;">
+                    <img src="img/title_3.png">
+                    功能区2
+                </div>
+                <div id="chart_2" class="chart"
+                     style="width:100%;height: 150px;display: flex; align-items: center; justify-content: center;">
+                    <p class="fancy-text_another">
+                        面向任意URL的异常网站检测
+                    </p>
+                </div>
+                <hr class="tech-divider">
+
+                <div class="info-wrapper">
+                    <img src="img/info_4.png" width="25px" margin>
+                    <p class="application_intro_1_text">
+                        功能简介
+                    </p>
+                </div>
+                <p class="function-description">
+                    此处我们实现了基于特定URL的异常网站检测功能。在下方的文本框中输入一个合法的网页URL（例如https://www.baidu.com)，根据相关指引，即可同步进行算法的可视化管理和网站的异常检测。
+                </p>
+
+                <hr class="tech-divider">
+
+                <div class="info-wrapper">
+                    <img src="img/info_6.png" width="25px" margin>
+                    <p class="application_intro_1_text">
+                        算法模型
+                    </p>
+                </div>
+
+                <p class="function-description">
+                    <span class="indented-text">基于网页URL的异常网站检测功能主要用到了以下机器学习算法：</span><br>
+                <ul class="algorithm-list">
+                    <li>算法模型1：---</li>
+                    <li>算法模型2：---</li>
+                    <li>算法模型3：---</li>
+                </ul>
+                </p>
+
+                <hr class="tech-divider">
+
+                <div class="info-wrapper">
+                    <img src="img/info_2.png" width="25px" margin>
+                    <p class="application_intro_1_text">
+                        在线应用
+                    </p>
+                </div>
+
+                <p class="function-description">
+                <ul class="algorithm-list">
+                    <li>Step.1：输入URL与URL合法性检测</li>
+                    <br>
+                    <li>
+                        在下方输入栏中输入一个URL，点击【开始检测】后会对URL的合法性进行检测。如果格式正确，会在网页上输出URL的具体内容，并作为异常检测的输入
+                    </li>
+                </ul>
+                </p>
+
+                <div class="url-input-wrapper">
+                    <input type="text" id="url-input" placeholder="请输入一个合法的 URL...">
+                    <button id="confirm-btn">开始检测</button>
+                </div>
+
+                <hr class="tech-divider">
+
+                <div id="url-output"></div>
+
+                <p class="function-description">
+                <ul class="algorithm-list">
+                    <li>Step.2：URL异常检测</li>
+                    <br>
+                </ul>
+
+                <div class="run-model-container_URL">
+                    <button id="run-model_URL" class="run-model-button_URL">启动模型</button>
+                </div>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<!--content结束-->
+
+
+<!--注销模态框  开始-->
+<div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">注销</h4>
+            </div>
+            <div class="modal-body">
+                <p>确认退出该系统吗？</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--注销模态框  结束-->
+
+
+</body>
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/china.js"></script>
+<script src="js/foundation-datepicker.js"></script>
+<script src="js/foundation-datepicker.zh-CN.js"></script>
+<script>
+    $('#demo-1').fdatepicker();
+
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var checkin = $('#dpd1').fdatepicker({
+        onRender: function (date) {
+            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function (ev) {
+        if (ev.date.valueOf() > checkout.date.valueOf()) {
+            var newDate = new Date(ev.date)
+            newDate.setDate(newDate.getDate() + 1);
+            checkout.update(newDate);
+        }
+        checkin.hide();
+        $('#dpd2')[0].focus();
+    }).data('datepicker');
+    var checkout = $('#dpd2').fdatepicker({
+        onRender: function (date) {
+            return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+        }
+    }).on('changeDate', function (ev) {
+        checkout.hide();
+    }).data('datepicker');
+
+
+    document.getElementById('file-upload').addEventListener('change', function (event) {
+        const allowedExtensions = ['.xls', '.xlsx', '.csv'];
+        const fileInput = event.target;
+        const file = fileInput.files[0];
+        const fileExtension = file.name.slice(file.name.lastIndexOf('.')).toLowerCase();
+
+        const errorNotification = document.getElementById('error-notification');
+        const successNotification = document.getElementById('success-notification');
+
+        function hideNotification(notification) {
+            setTimeout(function () {
+                notification.style.display = 'none';
+            }, 5000); // 5000毫秒（5秒）后隐藏提示
+        }
+
+        if (!allowedExtensions.includes(fileExtension)) {
+            errorNotification.style.display = 'block';
+            successNotification.style.display = 'none';
+            fileInput.value = null; // 清空输入框，以免用户再次选择相同的不合法文件时不触发 change 事件
+            hideNotification(errorNotification);
+        } else {
+            errorNotification.style.display = 'none';
+            successNotification.innerHTML = file.name + ' 上传成功！'; // 在上传成功消息前面加上文件的名称和格式
+            successNotification.style.display = 'block';
+            hideNotification(successNotification);
+        }
+    });
+
+    // 左侧模型启动按钮script函数实现
+    $(document).ready(function () {
+        $("#run-model").click(function () {
+            window.location.href = "templates/new_html_one.html";
+        });
+    });
+
+    // 获取文本框和确认按钮的引用
+    const urlInput = document.getElementById('url-input');
+    const confirmBtn = document.getElementById('confirm-btn');
+
+    // 当确认按钮被点击时执行的函数
+    confirmBtn.addEventListener('click', () => {
+        // 获取用户输入的 URL
+        const url = urlInput.value;
+
+        // 使用正则表达式检测 URL 是否合法
+        const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+        if (!urlRegex.test(url)) {
+            alert('请输入正确的 URL！');
+            return;
+        }
+
+        // 输出 URL
+        const urlOutput = document.getElementById('url-output');
+        urlOutput.innerText = `您输入的 URL 是：${url}`;
+        urlOutput.style.color = '#4caf50'; // 设置文本颜色
+        urlOutput.style.fontWeight = 'bold'; // 设置字体粗细
+        urlOutput.style.fontSize = '24px'; // 设置字体大小
+        urlOutput.style.fontFamily = 'Arial, sans-serif'; // 设置字体样式
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("run-model_URL").addEventListener("click", function () {
+            const url = urlInput.value;
+
+            // 使用正则表达式检测 URL 是否合法
+            const urlRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+            if (!urlRegex.test(url)) {
+                alert('请输入正确的 URL！');
+                return;
+            }
+            const inputText = document.getElementById("url-input").value;
+
+            // 显示加载动画
+            document.getElementById("loading-animation").style.display = "block";
+
+            // 延迟几秒钟后跳转到新页面
+            setTimeout(function () {
+                window.location.href = "new_page_function_2.html?input=" + encodeURIComponent(inputText);
+            }, 1000); // 设置延迟时间，这里设置为 1000 毫秒（1秒）
+        });
+    });
+</script>
+</html>

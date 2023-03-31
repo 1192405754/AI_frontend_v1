@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>URL异常检测-模型列表</title>
+    <link rel="stylesheet" href="css/function_first.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+<div class="sidebar">
+
+    <div class="logo-details">
+        <i class='bx bxl-c-plus-plus'></i>
+        <span class="logo_name">模型列表-菜单</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">使用说明</a></li>
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection'></i>
+                    <span class="link_name">使用说明</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">使用说明</a></li>
+                <hr class="tech-divider">
+                <li><a href="#">1.此为模型启动界面<br>主要内容有两类模型卡片</a></li>
+                <hr class="tech-divider">
+                <li><a href="#">2.模型卡片上包含了<br>对应模型的简要信息</a></li>
+                <hr class="tech-divider">
+                <li><a href="#">3.点击所需要的模型<br>即可跳转到使用模型界面</a></li>
+                <hr class="tech-divider">
+            </ul>
+        </li>
+        <li>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-book-alt'></i>
+                    <span class="link_name">模型功能</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">模型功能</a></li>
+                <hr class="tech-divider">
+                <li><a href="#">模型1.<br>此模型实现了输入Excel数<br>据集通过分析网站的关键特征<br>计算出网站有可能是钓鱼网站<br>的可能性。</a>
+                </li>
+                <hr class="tech-divider">
+                <li><a href="#">模型2.<br>此模型实现了输入一个URL<br>内容通过分析网站的离群属性<br>计算出网站有可能是钓鱼网站的<br>可能性。</a>
+                </li>
+                <hr class="tech-divider">
+            </ul>
+        </li>
+    </ul>
+</div>
+<section class="home-section">
+    <div class="home-content">
+        <video autoplay muted loop id="video-background">
+            <source src="img/function_bg_2.mp4" type="video/mp4">
+        </video>
+        <i class='bx bx-menu'></i>
+        <span class="text">异常检测-模型列表界面</span>
+        <div class="container">
+
+            <a href="model_1.html">
+                <div class="clash-card barbarian">
+                    <div class="clash-card__image clash-card__image--barbarian">
+                        <img src="img/Network-PNG-Cutout.png" alt="barbarian"/>
+                    </div>
+                    <div class="clash-card__level clash-card__level--barbarian">模型1</div>
+                    <div class="clash-card__unit-name">基于海量数据集的<br>异常网站检测</div>
+                    <div class="clash-card__unit-description">
+                        此模型实现了输入Excel数据集，通过分析网站的关键特征，计算出网站有可能是钓鱼网站的可能性。
+                    </div>
+
+                    <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
+                        <div class="one-third">
+                            <div class="stat">约20<sup>S</sup></div>
+                            <div class="stat-value">训练时长</div>
+                        </div>
+
+                        <div class="one-third">
+                            <div class="stat">16</div>
+                            <div class="stat-value">数据容量</div>
+                        </div>
+
+                        <div class="one-third no-border">
+                            <div class="stat">150</div>
+                            <div class="stat-value">算法性能</div>
+                        </div>
+                    </div>
+                </div> <!-- end clash-card barbarian-->
+            </a>
+
+            <a href="model_2.html">
+                <div class="clash-card_2 barbarian">
+                    <div class="clash-card__image clash-card__image--barbarian">
+                        <img src="img/Network-Transparent.png" alt="barbarian"/>
+                    </div>
+                    <div class="clash-card__level clash-card__level--barbarian">模型2</div>
+                    <div class="clash-card__unit-name">基于任意URL的<br>异常网站检测</div>
+                    <div class="clash-card__unit-description">
+                        此模型实现了输入一个URL内容，通过分析网站的离群属性，计算出网站有可能是钓鱼网站的可能性。
+                    </div>
+
+                    <div class="clash-card__unit-stats clash-card__unit-stats--barbarian clearfix">
+                        <div class="one-third">
+                            <div class="stat">约20<sup>S</sup></div>
+                            <div class="stat-value">训练时长</div>
+                        </div>
+
+                        <div class="one-third">
+                            <div class="stat">16</div>
+                            <div class="stat-value">数据容量</div>
+                        </div>
+
+                        <div class="one-third no-border">
+                            <div class="stat">150</div>
+                            <div class="stat-value">算法性能</div>
+                        </div>
+                    </div>
+                </div> <!-- end clash-card barbarian-->
+            </a>
+        </div>
+    </div>
+</section>
+
+<script>
+
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e) => {
+            let arrowParent = e.target.parentElement.parentElement;
+            arrowParent.classList.toggle("showMenu");
+        });
+    }
+
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+    });
+</script>
+
+</body>
+</html>

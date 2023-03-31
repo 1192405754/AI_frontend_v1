@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.animated-text {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+:root {
+    --light-color: #ffffff;
+    --dark-color: lightblue;
+}
+
+body html {
+    height: 100%;
+
+}
+
+.main_container {
+    width: 100vw;
+    height: auto;
+    position: absolute;
+    background-image: linear-gradient(to bottom right, var(--light-color), var(--dark-color));;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    max-width: 100%;
+    /*max-height: 100%;*/
+    /*z-index: -2;*/
+}
+
+
+.top_list {
+    width: 100%;
+    height: 8%;
+    position: fixed; /* 将导航栏固定在顶部 */
+    z-index: 1000;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /*background: linear-gradient(to bottom, #f8f8f8, #e0e0e0); !* 使用现代渐变背景 *!*/
+    /*backdrop-filter: blur(1px);*/
+    background-color: rgba(255, 255, 255, 0.5); /* 将背景颜色设置为白色半透明 */
+    backdrop-filter: blur(10px); /* 应用 10 像素的模糊滤镜 */
+    border-radius: 5px; /* 添加圆角边框 */
+    /*padding: 20px; !* 添加内边距 *!*/
+}
+
+.logo {
+    position: absolute;
+    left: 2vw;
+    width: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.top_tag ul {
+    margin-top: 20px;
+    margin-left: 85%;
+    /*right: 10px;*/
+    /*padding: 0;*/
+    display: flex;
+    /*justify-content: flex-end;*/
+    align-items: center;
+    /*height: 100%;*/
+}
+
+.top_tag ul li {
+    position: relative;
+    list-style: none;
+    margin-left: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+    border-radius: 5px; /* 添加圆角边框 */
+    padding: 5px 10px; /* 添加内边距 */
+}
+
+
+.top_tag ul li a {
+    text-decoration: none;
+    color: #333; /* 更改链接颜色以适应浅色背景 */
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif; /* 使用自定义字体 */
+}
+
+/* 添加hover效果 */
+.top_tag ul li:hover {
+    background-color: #d4d4d4; /* 更改hover背景色以适应浅色背景 */
+    box-shadow: 0 4px 6px; /* 添加阴影效果 */
+}
+
+.top_tag ul li:hover a {
+    color: #333;
+}
+
+.left_list {
+    margin-top: 3px;
+    width: 20vw;
+    height: 100%;
+    /*position: relative;*/
+    background-color: white;
+    /* 其他样式 */
+    border: 1px solid white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 20%;
+    left: 2%;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+}
+
+.left_list p {
+    font-size: 36px;
+    margin-top: 3%;
+    margin-left: 5vw;
+    font-family: "Poppins", sans-serif;
+    /*font-weight: 700;*/
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.left_list p span[lang="en"] {
+    font-family: "Times New Roman", sans-serif;
+}
+
+.left_list p span[lang="zh"] {
+    font-family: "宋体", sans-serif;
+    font-weight: bold;
+}
+
+.left_list ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.left_list li {
+    margin-bottom: 0.5rem;
+}
+
+.left_list a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 16px;
+    display: block;
+    border-radius: 4px;
+    transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+.left_list a:hover {
+    background-color: #f1f1f1; /* 鼠标悬停时改变背景色 */
+}
+
+.tech-divider {
+    border: 0; /* 移除默认的边框 */
+    height: 2px; /* 设置分割线的高度 */
+    background: linear-gradient(/* 创建一个渐变背景 */ 90deg,
+    transparent,
+    gray, /* 渐变开始颜色，例如蓝色 */ transparent
+    );
+    margin-top: 20px; /* 设置分割线与上方文本的距离 */
+    margin-bottom: 20px; /* 设置分割线与下方文本的距离 */
+}
+
+.main_article {
+    position: relative;
+    overflow: auto;
+    background-color: white;
+    /*width: 60vw;*/
+    height: 100vw;
+    /*right: -24vw;*/
+    /*margin-top: -100vw;*/
+    /*padding: 2rem;*/
+    /*font-size: 1.2rem;*/
+    /*font-family: "Roboto", sans-serif;*/
+    line-height: 1.6;
+    color: #333;
+    margin-top: 60px; /* 设置顶部外边距与顶部导航栏的高度相同 */
+    margin-left: 24vw; /* 设置左侧外边距与左侧目录的宽度相同 */
+    width: calc(50vw - 40px); /* 设置宽度为剩余空间，减去一些边距 */
+    padding: 20px; /* 添加内边距，使正文与边缘有一定间距 */
+    box-sizing: border-box; /* 设置盒模型，以便 padding 不会影响宽度 */
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    /*line-height: 1.6;*/
+    /*color: #333;*/
+    /*z-index: -1;*/
+}
+
+.main_article h2 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.main_article h3 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.main_article h4 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.main_article p {
+    font-weight: 400;
+    font-size: 1.1rem;
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    margin-top: 1rem;
+    margin-left: 0;
+    line-height: 2;
+    text-indent: 1.5em; /* 缩进值为1.5个字母的宽度 */
+}
+
+
+.project_img {
+    line-height: 2;
+    display: flex;
+    position: relative;
+    margin: 2rem auto; /* 设置自动边距实现水平居中，并增加上下文字段和图片之间的间隔 */
+    width: 800px;
+    height: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 添加初始阴影 */
+    transition: transform 0.3s, box-shadow 0.3s; /* 添加过渡效果 */
+}
+
+.project_img:hover {
+    transform: scale(1.05); /* 鼠标悬停时放大图片 */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* 鼠标悬停时增加阴影 */
+}
+

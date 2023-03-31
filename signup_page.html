@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Glass morphism Signup Page</title>
+    <link rel="stylesheet" href="./css/index_style.css">
+</head>
+<body>
+
+<div class="navbar animated-text">
+    <a href="index.html"><img src="assets/images/logo.png" class="logo"/></a>
+    <nav>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="signin_page.html">LOGIN</a></li>
+            <li><a href="signup_page.html">SIGN-UP</a></li>
+        </ul>
+    </nav>
+    <img src="assets/images/menu.png" class="menu-icon"/>
+</div>
+
+
+<section>
+
+
+    <div class="leaves">
+        <div class="set">
+            <!--                <div><img src="assets/images/leaf_01.png"></div>-->
+            <!--                <div><img src="assets/images/leaf_02.png"></div>-->
+            <!--                <div><img src="assets/images/leaf_03.png"></div>-->
+            <!--                <div><img src="assets/images/leaf_04.png"></div>-->
+            <!--                <div><img src="assets/images/leaf_01.png"></div>-->
+            <!--                <div><img src="assets/images/leaf_02.png"></div>-->
+            <!--                <div><img src="assets/images/leaf_03.png"></div>-->
+            <!--                <div><img src="assets/images/leaf_04.png"></div>-->
+        </div>
+    </div>
+
+    <video autoplay muted loop id="video-background">
+        <source src="assets/images/video.mp4" type="video/mp4">
+    </video>
+
+
+    <!--    <img src="assets/images/background.jpg" class="bg">-->
+    <div class="login">
+        <h1>注册</h1>
+        <h2>Sign Up</h2>
+        <div class="innner">
+            <div class="inputBox">
+                <input type="text" placeholder="Username" id="username">
+            </div>
+            <div class="inputBox">
+                <input type="password" placeholder="password" id="password">
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Create the account" id="btn" onclick="validateLogin()">
+            </div>
+            <div class="group">
+                <a href="#">Forget Password</a>
+                <a href="#">Signup</a>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+<script>
+    function validateLogin() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        // 用于验证用户名和密码是否正确的代码
+        if (username == "admin" && password == "12345") {
+            window.location.href = "signin_page.html";
+        } else {
+            alert("Invalid username or password. Please try again.");
+        }
+    }
+</script>
+</body>
+</html>

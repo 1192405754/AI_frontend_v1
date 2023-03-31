@@ -1,0 +1,482 @@
+body {
+    background-image: linear-gradient(to bottom, #081832, #0e2a4d);
+}
+
+html, body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.data_content {
+    /*overflow-x: hidden;*/
+    min-width: 1366px;
+    background-color: #081832;
+    padding-top: 20px;
+    padding-bottom: 0;
+}
+
+.data_content .data_time {
+    width: 130px;
+    height: 35px;
+    background-color: #04425f;
+    line-height: 35px;
+    color: #fff;
+    font-size: 12.8px;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 25px;
+    margin-left: 20px;
+}
+
+.data_content .data_time img {
+    position: absolute;
+    top: 8px;
+    left: 15px;
+}
+
+.data_content .data_info {
+    width: calc(100% - 40px);
+    margin-bottom: 40px;
+    height: 110px;
+    margin-left: 20px;
+}
+
+.data_content .data_info .info_1 {
+    width: 40%;
+    height: 110px;
+}
+
+.data_content .data_info .info_1 > .text_1 {
+    width: calc(100% - 25px);
+    background-color: #034c6a;
+    height: 110px;
+}
+
+.data_content .data_info .info_2 {
+    width: 31%;
+    height: 110px;
+}
+
+.data_content .data_info .info_2 > .text_2 {
+    width: calc(100% - 25px);
+    background-color: #034c6a;
+    height: 110px;
+}
+
+.data_content .data_info .info_3 {
+    width: 29%;
+    height: 110px;
+}
+
+.data_content .data_info .info_3 > .text_3 {
+    width: 100%;
+    background-color: #034c6a;
+    height: 100%;
+
+}
+
+.data_content .data_info > div.info_1 > .text_1 > div {
+    width: 33.333%;
+    position: relative;
+}
+
+.data_content .data_info > div.info_2 > div > div,
+.data_content .data_info > div.info_3 > div > div {
+    width: 50%;
+    position: relative;
+}
+
+.data_content .data_info img {
+    position: absolute;
+    top: 35px;
+    left: 15px;
+}
+
+.data_content .data_info > div > div > div > div {
+    margin-left: 65px;
+    margin-top: 23px;
+}
+
+.data_content .data_info > div.info_2 > div > div > div {
+    margin-left: 70px;
+    margin-top: 23px;
+}
+
+.data_content .data_info p:nth-child(1) {
+    color: #fff;
+    font-size: 12.8px;
+}
+
+.data_content .data_info p:nth-child(2) {
+    font-weight: 600;
+    font-size: 28px;
+    color: #ffff43;
+}
+
+.data_content .data_info > div.info_2 p:nth-child(2) {
+    font-weight: 600;
+    font-size: 28px;
+    color: #25f3e6;
+}
+
+.data_content .data_info > div.info_3 p:nth-child(2) {
+    font-weight: 600;
+    font-size: 28px;
+    color: #ff4e4e;
+}
+
+
+.data_content .data_main {
+    width: calc(100% - 0px);
+    margin-bottom: 0px;
+    height: 100vh;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.data_content .data_main .main_center {
+    width: 99%;
+    height: 99%;
+}
+
+.data_content .data_main .main_center .center_text {
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+    box-sizing: border-box;
+    border: 5px solid #034c6a;
+    box-shadow: -10px 0px 15px #034c6a inset, /*左边阴影*/ 0px -10px 15px #034c6a inset, /*上边阴影*/ 10px 0px 15px #034c6a inset, /*右边阴影*/ 0px 10px 15px #034c6a inset;
+    position: relative;
+    /*background: url("../img/chart_map.png") no-repeat center ;*/
+}
+
+.data_content .data_main .main_center .main_title {
+    width: 130px;
+    height: 35px;
+    line-height: 33px;
+    background-color: #034c6a;
+    border-radius: 18px;
+    position: absolute;
+    top: -17px;
+    left: 50%;
+    margin-left: -90px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding-left: 45px;
+    z-index: 1000;
+}
+
+.data_content .data_main .main_center .main_title img {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+}
+
+.fancy-text {
+    color: #ffffff; /* 更改字体颜色为白色，与背景形成对比 */
+    font-size: 32px;
+    font-family: 'Roboto', sans-serif; /* 更改字体为 Roboto，一种更现代的无衬线字体 */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* 添加稍微柔和的阴影效果 */
+    background-image: linear-gradient(to bottom right, #3a9fd9, #1e3c72); /* 渐变背景 */
+    padding: 10px 20px; /* 增加左右边距，让文本与背景有更好的空间 */
+    border-radius: 25px; /* 调整圆角边框，使其看起来更柔和 */
+    display: inline-block; /* 使背景紧贴文字并保持内边距效果 */
+    margin: 0; /* 重置外边距 */
+    line-height: 1.2; /* 设置适当的行高 */
+}
+
+.fancy-text-noback {
+    color: #ffffff; /* 更改字体颜色为白色，与背景形成对比 */
+    font-size: 20px;
+    font-family: '宋体', sans-serif; /* 更改字体为 Roboto，一种更现代的无衬线字体 */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* 添加稍微柔和的阴影效果 */
+    padding: 10px 20px; /* 增加左右边距，让文本与背景有更好的空间 */
+    border-radius: 25px; /* 调整圆角边框，使其看起来更柔和 */
+    display: inline-block; /* 使背景紧贴文字并保持内边距效果 */
+    margin: 0; /* 重置外边距 */
+    line-height: 1.2; /* 设置适当的行高 */
+}
+
+
+.fancy-text_another {
+    color: #ffffff; /* 更改字体颜色为白色，与背景形成对比 */
+    font-size: 32px;
+    font-family: 'Roboto', sans-serif; /* 更改字体为 Roboto，一种更现代的无衬线字体 */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* 添加稍微柔和的阴影效果 */
+    background-image: linear-gradient(to bottom right, #3a9fd9, #1e3c72); /* 渐变背景 */
+    padding: 10px 20px; /* 增加左右边距，让文本与背景有更好的空间 */
+    border-radius: 25px; /* 调整圆角边框，使其看起来更柔和 */
+    display: inline-block; /* 使背景紧贴文字并保持内边距效果 */
+    margin: 0; /* 重置外边距 */
+    line-height: 1.2; /* 设置适当的行高 */
+}
+
+
+.file-upload-container {
+    border: 2px dashed #ccc;
+    padding: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.file-upload-button {
+    background-color: #3a9fd9;
+    color: yellow;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.application_intro_1_text {
+    color: #ffffff;
+    font-size: 24px;
+    font-family: 'serif';
+    margin-top: 5px;
+    margin-left: 10px; /* 为标题添加左边距，使其与图标有一定的间隔 */
+}
+
+.info-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.info-wrapper img {
+    margin-left: 10px;
+}
+
+.function-description {
+    font-size: 18px; /* 设置字体大小 */
+    color: #ffffff; /* 设置文本颜色 */
+    line-height: 1.5; /* 设置行高 */
+    margin-top: 10px; /* 为文本添加上边距，使其与上面的标题有一定的间隔 */
+    text-indent: 2em; /* 设置段落首行缩进 */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.indented-text {
+    text-indent: 2em; /* 设置缩进，可以根据需要调整值 */
+}
+
+.algorithm-list {
+    list-style-type: none; /* 移除列表项目前的默认标记 */
+    padding-left: 2em; /* 设置缩进，可以根据需要调整值 */
+    margin-top: 0; /* 移除列表的默认上边距 */
+    font-size: 18px; /* 设置字体大小 */
+    color: #ffffff; /* 设置文本颜色 */
+}
+
+.error-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #f44336; /* 设置背景颜色，例如红色 */
+    color: #fff; /* 设置文本颜色，例如白色 */
+    text-align: center;
+    z-index: 9999; /* 设置层叠顺序，使其显示在其他元素之上 */
+}
+
+.success-notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #4CAF50; /* 设置背景颜色，例如绿色 */
+    color: #fff; /* 设置文本颜色，例如白色 */
+    text-align: center;
+    z-index: 9999; /* 设置层叠顺序，使其显示在其他元素之上 */
+}
+
+.tech-divider {
+    border: 0; /* 移除默认的边框 */
+    height: 2px; /* 设置分割线的高度 */
+    background: linear-gradient(/* 创建一个渐变背景 */ 90deg,
+    transparent,
+    #1E90FF, /* 渐变开始颜色，例如蓝色 */ transparent
+    );
+    margin-top: 20px; /* 设置分割线与上方文本的距离 */
+    margin-bottom: 20px; /* 设置分割线与下方文本的距离 */
+}
+
+.run-model-container {
+    text-align: center; /* 居中容器内的元素 */
+    margin-top: 20px; /* 距离上方内容的间距 */
+    margin-bottom: 20px; /* 距离下方内容的间距 */
+}
+
+.run-model-button {
+    background-color: #3a9fd9; /* 按钮背景颜色 */
+    color: white; /* 按钮文字颜色 */
+    font-size: 18px; /* 字体大小 */
+    font-weight: bold; /* 加粗文字 */
+    padding: 12px 24px; /* 按钮内边距 */
+    border: none; /* 移除默认边框 */
+    border-radius: 5px; /* 圆角边框 */
+    cursor: pointer; /* 当鼠标悬停在按钮上时显示手型指针 */
+    transition: 0.3s; /* 过渡效果 */
+}
+
+.run-model-button:hover {
+    background-color: #1e3c72; /* 当鼠标悬停在按钮上时的背景颜色 */
+}
+
+.url-input-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+/* 美化文本框 */
+#url-input {
+    width: 400px;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #cfcfcf;
+    outline: none;
+    margin-right: 10px;
+}
+
+/* 美化按钮 */
+#confirm-btn {
+    width: 100px;
+    height: 40px;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #cfcfcf;
+    cursor: pointer;
+    outline: none;
+}
+
+/* 当鼠标悬停在按钮上时，改变其背景颜色 */
+#confirm-btn:hover {
+    background-color: #3e8e41;
+}
+
+/* 输出框样式 */
+#url-output {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+
+.run-model-container_URL {
+    text-align: center; /* 居中容器内的元素 */
+    margin-top: 0px; /* 距离上方内容的间距 */
+    margin-bottom: 10px; /* 距离下方内容的间距 */
+}
+
+.run-model-button_URL {
+    background-color: #3a9fd9; /* 按钮背景颜色 */
+    color: white; /* 按钮文字颜色 */
+    font-size: 18px; /* 字体大小 */
+    font-weight: bold; /* 加粗文字 */
+    padding: 12px 24px; /* 按钮内边距 */
+    border: none; /* 移除默认边框 */
+    border-radius: 5px; /* 圆角边框 */
+    cursor: pointer; /* 当鼠标悬停在按钮上时显示手型指针 */
+    transition: 0.3s; /* 过渡效果 */
+    margin-top: 0px; /* 距离上方内容的间距 */
+    margin-bottom: 10px; /* 距离下方内容的间距 */
+}
+
+.run-model-button_URL:hover {
+    background-color: #1e3c72; /* 当鼠标悬停在按钮上时的背景颜色 */
+}
+
+.model-result {
+    font-size: 76px;
+}
+
+.input-url {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.animated-text {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.fancy-text_URL {
+    color: #8da2c2; /* 更改字体颜色为稍微柔和的蓝灰色，与背景形成对比 */
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif; /* 更改字体为 Roboto，一种更现代的无衬线字体 */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* 添加稍微柔和的阴影效果 */
+    padding: 10px 20px; /* 增加左右边距，让文本与背景有更好的空间 */
+    border-radius: 5px; /* 调整圆角边框，使其看起来更柔和 */
+    display: inline-block; /* 使背景紧贴文字并保持内边距效果 */
+    line-height: 1.2; /* 设置适当的行高 */
+    margin: 0;
+}
+
+.info-icon {
+    margin-left: 15px;
+}
+
+.input_URL_title {
+    display: flex;
+    align-items: center;
+}
+
+.chart-container {
+    margin: 0 auto; /* 设置图表居中 */
+    border: 1px solid #ccc; /* 添加一个边框 */
+    padding: 10px; /* 在图表周围添加一些内边距 */
+}
+
+.charts_container {
+    display: flex;
+    width: 100%;
+    height: 50vh;
+}
+
+.column {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.one-third {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+    border-width: 0px 3px 0px 0px;
+    border-style: solid;
+    border-image: linear-gradient(40deg, transparent, #1E90FF, transparent) 1;
+}
+
+.one-third:first-child {
+    border-left: none; /* 移除第一个容器的左边框 */
+}
+
+.one-third:last-child {
+    border-right: 0;
+}
